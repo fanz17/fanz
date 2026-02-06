@@ -1,0 +1,2223 @@
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMK ANTARTIKA 2 SIDOARJO - Website Resmi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========== RESET & VARIABLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        :root {
+            --primary: #1e3c72;
+            --secondary: #2a5298;
+            --accent: #ff6600;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* ========== HEADER & NAVBAR ========== */
+        .top-bar {
+            background: var(--primary);
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            margin-left: 15px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo-text h1 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary);
+            background: rgba(30, 60, 114, 0.1);
+        }
+        
+        nav a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 15px;
+            right: 15px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.9), rgba(42, 82, 152, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 50px;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #e55a00;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* ========== STATS SECTION ========== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 5px solid var(--primary);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* ========== SECTIONS ========== */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 32px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* ========== WELCOME SECTION ========== */
+        .welcome-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .headmaster-img {
+            flex: 0 0 300px;
+        }
+        
+        .headmaster-img img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .headmaster-info {
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 10px;
+            margin-top: -30px;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .welcome-text {
+            flex: 1;
+        }
+        
+        /* ========== MAJORS SECTION ========== */
+        .majors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .major-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-top: 5px solid;
+            cursor: pointer;
+        }
+        
+        .major-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .major-header {
+            padding: 25px;
+            color: white;
+            text-align: center;
+        }
+        
+        .major-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .major-body {
+            padding: 25px;
+        }
+        
+        .major-body h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* WARNA BARU JURUSAN */
+        .tkj { border-color: #27ae60; background: linear-gradient(135deg, #27ae60, #219653); }
+        .rpl { border-color: #9b59b6; background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .dkv { border-color: #f1c40f; background: linear-gradient(135deg, #f1c40f, #f39c12); }
+        .perbankan { border-color: #e74c3c; background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .akl { border-color: #3498db; background: linear-gradient(135deg, #3498db, #2980b9); }
+        .mekatronika { border-color: #e67e22; background: linear-gradient(135deg, #e67e22, #d35400); }
+        
+        /* ========== DETAIL JURUSAN PAGE ========== */
+        .major-detail {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: none;
+        }
+        
+        .major-detail.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .detail-icon {
+            font-size: 60px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .detail-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        .detail-info h3 {
+            color: var(--primary);
+            margin: 20px 0 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .achievement-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .achievement-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .achievement-content {
+            padding: 15px;
+        }
+        
+        /* ========== NEWS SECTION ========== */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .news-img {
+            height: 200px;
+            background: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.1);
+        }
+        
+        .news-date {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-category {
+            display: inline-block;
+            background: #e3f2fd;
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        /* ========== PPDB SECTION ========== */
+        .ppdb-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .countdown-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 100px;
+        }
+        
+        .countdown-number {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        
+        .ppdb-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 50px;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+        }
+        
+        /* ========== DATA PENDAFTAR SECTION ========== */
+        .data-pendaftar {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: none;
+        }
+        
+        .data-pendaftar.active {
+            display: block;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        /* ========== GALLERY SECTION ========== */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 60, 114, 0.8);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* ========== CONTACT SECTION ========== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 992px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                border-radius: 0 0 15px 15px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .welcome-content {
+                flex-direction: column;
+            }
+            
+            .headmaster-img {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .detail-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-box {
+                min-width: 80px;
+            }
+        }
+        
+        /* ========== UTILITY CLASSES ========== */
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .bg-light { background: var(--light); }
+        .mt-20 { margin-top: 20px; }
+        .mt-30 { margin-top: 30px; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-30 { margin-bottom: 30px; }
+        .d-none { display: none; }
+        .d-block { display: block; }
+        .d-flex { display: flex; }
+        .justify-between { justify-content: space-between; }
+        .align-center { align-items: center; }
+        .gap-20 { gap: 20px; }
+    </style>
+</head>
+<body>
+    <!-- ========== TOP BAR ========== -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> 085237157189</span>
+                <span><i class="fas fa-envelope"></i> akhmad234z@gmail.com</span>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/akhmad_tifani?igsh=Nmw3MjU3aGJpOGY3" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/6285237157189" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== HEADER ========== -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">A2</div>
+                <div class="logo-text">
+                    <h1>SMK ANTARTIKA 2</h1>
+                    <p>Sidoarjo - Jawa Timur</p>
+                </div>
+            </div>
+            
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="#home" class="active">Beranda</a></li>
+                    <li><a href="#profil">Profil</a></li>
+                    <li><a href="#jurusan">Jurusan</a></li>
+                    <li><a href="#ppdb">PPDB 2025</a></li>
+                    <li><a href="#berita">Berita</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                    <li><a href="#data-pendaftar">Data Pendaftar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>PPDB 2025-2026 TELAH DIBUKA!</h2>
+            <p>Daftarkan diri Anda sekarang dan jadilah bagian dari keluarga besar SMK Antartika 2 Sidoarjo - Sekolah kejuruan terbaik dengan fasilitas lengkap dan guru profesional.</p>
+            <div class="cta-buttons">
+                <a href="#ppdb" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> DAFTAR SEKARANG
+                </a>
+                <a href="#jurusan" class="btn btn-secondary">
+                    <i class="fas fa-graduation-cap"></i> LIHAT JURUSAN
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== STATISTIK ========== -->
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card animate">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-number" id="studentCount">0</div>
+                <p>Siswa Aktif</p>
+            </div>
+            <div class="stat-card animate">
+                <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="stat-number" id="teacherCount">0</div>
+                <p>Guru & Staff</p>
+            </div>
+            <div class="stat-card animate">
+                <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="stat-number" id="graduationRate">0%</div>
+                <p>Tingkat Kelulusan</p>
+            </div>
+            <div class="stat-card animate">
+                <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                <div class="stat-number" id="achievementCount">0</div>
+                <p>Prestasi</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SAMBUTAN KEPALA SEKOLAH ========== -->
+    <section id="profil" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sambutan Kepala Sekolah</h2>
+                <p>Kata sambutan dari pimpinan SMK Antartika 2 Sidoarjo</p>
+            </div>
+            
+            <div class="welcome-content animate">
+                <div class="headmaster-img">
+                    <img src="data:image/jpeg;base64,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" alt="Kepala Sekolah">
+                    <div class="headmaster-info">
+                        <h4>Retno Purwolystiorini, S.Pd</h4>
+                        <p>Kepala Sekolah</p>
+                    </div>
+                </div>
+                <div class="welcome-text">
+                    <h3 class="text-primary">Assalamu'alaikum Warahmatullahi Wabarakatuh</h3>
+                    <p class="mt-20">Selamat datang di website resmi SMK Antartika 2 Sidoarjo. Atas nama seluruh keluarga besar sekolah, saya mengucapkan terima kasih atas kunjungan Anda ke website kami.</p>
+                    <p class="mt-20">SMK Antartika 2 Sidoarjo berkomitmen untuk memberikan pendidikan kejuruan yang berkualitas, relevan dengan kebutuhan industri, dan berorientasi pada pembentukan karakter siswa yang unggul.</p>
+                    <p class="mt-20">Dengan dukungan fasilitas yang modern, kurikulum berbasis industri, dan tenaga pengajar yang profesional, kami yakin setiap lulusan SMK Antartika 2 akan menjadi tenaga kerja terampil yang siap bersaing di dunia kerja.</p>
+                    <div class="mt-30">
+                        <a href="#kontak" class="btn btn-primary">
+                            <i class="fas fa-phone-alt"></i> Hubungi Kami
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== JURUSAN (SIMPLE VIEW) ========== -->
+    <section id="jurusan">
+        <div class="container">
+            <div class="section-title">
+                <h2>Program Keahlian</h2>
+                <p>Pilih jurusan yang sesuai dengan minat dan bakat Anda</p>
+            </div>
+            
+            <div class="majors">
+                <!-- TKJ - HIJAU -->
+                <div class="major-card tkj" onclick="showMajorDetail('tkj')">
+                    <div class="major-header">
+                        <div class="major-icon"><i class="fas fa-network-wired"></i></div>
+                        <h3>TKJ</h3>
+                    </div>
+                    <div class="major-body">
+                        <h3>Teknik Komputer & Jaringan</h3>
+                        <p>Mempelajari instalasi, konfigurasi, dan troubleshooting jaringan komputer...</p>
+                        <div class="mt-20">
+                            <button class="btn btn-primary">Detail Jurusan</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- RPL - UNGU -->
+                <div class="major-card rpl" onclick="showMajorDetail('rpl')">
+                    <div class="major-header">
+                        <div class="major-icon"><i class="fas fa-code"></i></div>
+                        <h3>RPL</h3>
+                    </div>
+                    <div class="major-body">
+                        <h3>Rekayasa Perangkat Lunak</h3>
+                        <p>Mempelajari pengembangan aplikasi web, mobile, dan desktop...</p>
+                        <div class="mt-20">
+                            <button class="btn btn-primary">Detail Jurusan</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DKV - KUNING -->
+                <div class="major-card dkv" onclick="showMajorDetail('dkv')">
+                    <div class="major-header">
+                        <div class="major-icon"><i class="fas fa-paint-brush"></i></div>
+                        <h3>DKV</h3>
+                    </div>
+                    <div class="major-body">
+                        <h3>Desain Komunikasi Visual</h3>
+                        <p>Mempelajari desain grafis, ilustrasi, fotografi, dan animasi digital...</p>
+                        <div class="mt-20">
+                            <button class="btn btn-primary">Detail Jurusan</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PERBANKAN - MERAH -->
+                <div class="major-card perbankan" onclick="showMajorDetail('perbankan')">
+                    <div class="major-header">
+                        <div class="major-icon"><i class="fas fa-money-check-alt"></i></div>
+                        <h3>PERBANKAN</h3>
+                    </div>
+                    <div class="major-body">
+                        <h3>Perbankan & Keuangan</h3>
+                        <p>Mempelajari perbankan, akuntansi, pasar modal, dan manajemen keuangan...</p>
+                        <div class="mt-20">
+                            <button class="btn btn-primary">Detail Jurusan</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AKL - BIRU -->
+                <div class="major-card akl" onclick="showMajorDetail('akl')">
+                    <div class="major-header">
+                        <div class="major-icon"><i class="fas fa-calculator"></i></div>
+                        <h3>AKL</h3>
+                    </div>
+                    <div class="major-body">
+                        <h3>Akuntansi & Keuangan Lembaga</h3>
+                        <p>Mempelajari akuntansi, perpajakan, auditing, dan sistem informasi keuangan...</p>
+                        <div class="mt-20">
+                            <button class="btn btn-primary">Detail Jurusan</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- MEKATRONIKA - ORANGE -->
+                <div class="major-card mekatronika" onclick="showMajorDetail('mekatronika')">
+                    <div class="major-header">
+                        <div class="major-icon"><i class="fas fa-robot"></i></div>
+                        <h3>MEKATRONIKA</h3>
+                    </div>
+                    <div class="major-body">
+                        <h3>Mekatronika & Otomasi Industri</h3>
+                        <p>Mempelajari robotika, otomasi industri, PLC, dan sistem kendali elektronik...</p>
+                        <div class="mt-20">
+                            <button class="btn btn-primary">Detail Jurusan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DETAIL JURUSAN (HIDDEN UNTIL DIKLIK) ========== -->
+    <div class="container">
+        <!-- TKJ Detail -->
+        <div id="tkj-detail" class="major-detail">
+            <div class="detail-header">
+                <div class="detail-icon" style="background: #27ae60;">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div>
+                    <h2>Teknik Komputer & Jaringan (TKJ)</h2>
+                    <p>Jurusan Unggulan dengan Sertifikasi MikroTik MTCNA</p>
+                </div>
+            </div>
+            
+            <div class="detail-content">
+                <div class="detail-info">
+                    <h3>Deskripsi Jurusan</h3>
+                    <p>Jurusan TKJ mempelajari tentang instalasi, konfigurasi, dan troubleshooting jaringan komputer. Siswa akan dibekali dengan kemampuan untuk merancang, membangun, dan mengelola jaringan komputer baik skala kecil maupun besar. Program ini mencakup jaringan kabel, nirkabel, keamanan jaringan, dan administrasi server.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4><i class="fas fa-graduation-cap"></i> Kompetensi Lulusan</h4>
+                            <p>• Teknisi Jaringan Komputer<br>• Network Administrator<br>• System Administrator<br>• IT Support Specialist</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-certificate"></i> Sertifikasi</h4>
+                            <p>• MikroTik MTCNA<br>• Cisco CCNA<br>• CompTIA Network+<br>• BNSP Teknisi Jaringan</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-industry"></i> Mitra Industri</h4>
+                            <p>• Telkom Indonesia<br>• Huawei<br>• Cisco Networking Academy<br>• Biznet Networks</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Mata Pelajaran Unggulan</h3>
+                    <ul>
+                        <li><strong>Jaringan Dasar:</strong> Konsep dasar jaringan komputer</li>
+                        <li><strong>Administrasi Server:</strong> Konfigurasi Windows & Linux Server</li>
+                        <li><strong>Keamanan Jaringan:</strong> Firewall, VPN, dan sistem keamanan</li>
+                        <li><strong>Pemrograman Web:</strong> HTML, CSS, JavaScript dasar</li>
+                        <li><strong>MikroTik MTCNA:</strong> Konfigurasi router MikroTik</li>
+                        <li><strong>Jaringan Nirkabel:</strong> WiFi, Access Point, Wireless Security</li>
+                    </ul>
+                    
+                    <h3 class="mt-30">Fasilitas Praktik</h3>
+                    <p>• 3 Lab Komputer dengan spesifikasi tinggi<br>• Lab MikroTik khusus<br>• Lab Cisco Networking<br>• Server room dengan rack mount<br>• Peralatan jaringan lengkap (router, switch, access point)</p>
+                </div>
+                
+                <div>
+                    <h3>Prestasi Siswa TKJ</h3>
+                    <div class="achievement-grid">
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Siswa Lomba Jaringan">
+                            <div class="achievement-content">
+                                <h4>Juara 1 Lomba Jaringan Tingkat Jatim</h4>
+                                <p><strong>Andi Wijaya</strong> - Siswa TKJ kelas XII<br>Lomba Cisco NetRiders 2024</p>
+                            </div>
+                        </div>
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Siswa Presentasi">
+                            <div class="achievement-content">
+                                <h4>Best Presenter IT Competition</h4>
+                                <p><strong>Siti Nurhaliza</strong> - Juara 3 Nasional<br>Kompetensi Keahlian TKJ 2023</p>
+                            </div>
+                        </div>
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Tim Pemenang">
+                            <div class="achievement-content">
+                                <h4>Tim Cyber Security Juara 2</h4>
+                                <p><strong>Tim TKJ SMK Antartika 2</strong><br>Lomba Keamanan Siber Tingkat Provinsi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-30">
+                <button class="btn btn-primary" onclick="hideMajorDetail()">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Jurusan
+                </button>
+            </div>
+        </div>
+        
+        <!-- RPL Detail -->
+        <div id="rpl-detail" class="major-detail">
+            <div class="detail-header">
+                <div class="detail-icon" style="background: #9b59b6;">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div>
+                    <h2>Rekayasa Perangkat Lunak (RPL)</h2>
+                    <p>Jurusan Pengembangan Aplikasi dan Software</p>
+                </div>
+            </div>
+            
+            <div class="detail-content">
+                <div class="detail-info">
+                    <h3>Deskripsi Jurusan</h3>
+                    <p>Jurusan RPL fokus pada pengembangan perangkat lunak termasuk pembuatan aplikasi web, mobile, dan desktop. Siswa akan belajar pemrograman, database management, UI/UX design, dan software engineering. Program ini dirancang untuk mencetak developer yang siap kerja di industri teknologi.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4><i class="fas fa-graduation-cap"></i> Kompetensi Lulusan</h4>
+                            <p>• Web Developer<br>• Mobile App Developer<br>• Software Engineer<br>• Database Administrator</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-code"></i> Teknologi yang Dipelajari</h4>
+                            <p>• HTML/CSS/JavaScript<br>• PHP & Laravel<br>• Python & Django<br>• React Native</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-briefcase"></i> Prospek Kerja</h4>
+                            <p>• Startup Technology<br>• Software House<br>• Perusahaan IT<br>• Freelance Developer</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Proyek yang Dikerjakan Siswa</h3>
+                    <ul>
+                        <li><strong>Sistem Informasi Sekolah:</strong> Aplikasi web untuk manajemen sekolah</li>
+                        <li><strong>E-commerce Website:</strong> Toko online dengan payment gateway</li>
+                        <li><strong>Aplikasi Mobile:</strong> Android & iOS apps untuk berbagai kebutuhan</li>
+                        <li><strong>Game Development:</strong> Game 2D sederhana menggunakan Unity</li>
+                        <li><strong>IoT Projects:</strong> Sistem monitoring berbasis web</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Prestasi Siswa RPL</h3>
+                    <div class="achievement-grid">
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Siswa Coding">
+                            <div class="achievement-content">
+                                <h4>Juara 1 Hackathon Nasional</h4>
+                                <p><strong>Rizky Pratama</strong> - Siswa RPL kelas XI<br>Develop aplikasi edukasi terbaik</p>
+                            </div>
+                        </div>
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Tim Programming">
+                            <div class="achievement-content">
+                                <h4>Finalis Olimpiade TIK Nasional</h4>
+                                <p><strong>Tim RPL Antartika</strong><br>Kompetisi programming tingkat nasional</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-30">
+                <button class="btn btn-primary" onclick="hideMajorDetail()">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Jurusan
+                </button>
+            </div>
+        </div>
+        
+        <!-- DKV Detail -->
+        <div id="dkv-detail" class="major-detail">
+            <div class="detail-header">
+                <div class="detail-icon" style="background: #f1c40f;">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <div>
+                    <h2>Desain Komunikasi Visual (DKV)</h2>
+                    <p>Jurusan Kreatif Digital & Konten Visual</p>
+                </div>
+            </div>
+            
+            <div class="detail-content">
+                <div class="detail-info">
+                    <h3>Deskripsi Jurusan</h3>
+                    <p>Jurusan DKV mempelajari pembuatan konten digital kreatif termasuk desain grafis, ilustrasi, fotografi, animasi, dan motion graphics. Siswa akan menguasai software profesional seperti Adobe Creative Suite untuk menghasilkan karya visual yang menarik dan komunikatif.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4><i class="fas fa-palette"></i> Bidang Keahlian</h4>
+                            <p>• Desain Grafis<br>• Ilustrasi Digital<br>• Fotografi<br>• Animasi 2D/3D</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-tools"></i> Software yang Dipelajari</h4>
+                            <p>• Adobe Photoshop<br>• Adobe Illustrator<br>• Adobe InDesign<br>• Adobe After Effects</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-video"></i> Prospek Karir</h4>
+                            <p>• Graphic Designer<br>• Illustrator<br>• Fotografer<br>• Animator</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Fasilitas Studio</h3>
+                    <p>• Studio fotografi dengan lighting professional<br>• Lab editing dengan iMac dan Wacom tablet<br>• Studio green screen untuk video production<br>• Peralatan kamera DSLR dan mirrorless<br>• Sound recording booth</p>
+                </div>
+                
+                <div>
+                    <h3>Karya Siswa DKV</h3>
+                    <div class="achievement-grid">
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Desain Grafis">
+                            <div class="achievement-content">
+                                <h4>Juara Desain Poster Nasional</h4>
+                                <p><strong>Diana Putri</strong> - Siswa DKV kelas XII<br>Lomba desain anti narkoba 2024</p>
+                            </div>
+                        </div>
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Video Production">
+                            <div class="achievement-content">
+                                <h4>Film Pendek Terbaik</h4>
+                                <p><strong>Tim Film SMK Antartika</strong><br>Festival film pelajar tingkat Jatim</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-30">
+                <button class="btn btn-primary" onclick="hideMajorDetail()">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Jurusan
+                </button>
+            </div>
+        </div>
+        
+        <!-- PERBANKAN Detail -->
+        <div id="perbankan-detail" class="major-detail">
+            <div class="detail-header">
+                <div class="detail-icon" style="background: #e74c3c;">
+                    <i class="fas fa-money-check-alt"></i>
+                </div>
+                <div>
+                    <h2>Perbankan & Keuangan</h2>
+                    <p>Jurusan Perbankan dan Manajemen Keuangan</p>
+                </div>
+            </div>
+            
+            <div class="detail-content">
+                <div class="detail-info">
+                    <h3>Deskripsi Jurusan</h3>
+                    <p>Jurusan Perbankan mempelajari operasional perbankan, akuntansi, pasar modal, manajemen keuangan, dan perpajakan. Siswa akan dibekali dengan pengetahuan tentang produk perbankan, transaksi keuangan, dan regulasi perbankan Indonesia.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4><i class="fas fa-chart-line"></i> Kompetensi Utama</h4>
+                            <p>• Operasional Perbankan<br>• Akuntansi Keuangan<br>• Pasar Modal<br>• Manajemen Keuangan</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-university"></i> Lembaga Keuangan</h4>
+                            <p>• Bank Umum & Syariah<br>• Asuransi<br>• Perusahaan Pembiayaan<br>• Pasar Modal</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-users"></i> Prospek Karir</h4>
+                            <p>• Teller Bank<br>• Customer Service<br>• Account Officer<br>• Financial Analyst</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Praktik Simulasi Perbankan</h3>
+                    <p>Fasilitas lab perbankan dengan:</p>
+                    <ul>
+                        <li><strong>Teller Counter:</strong> Simulasi transaksi perbankan</li>
+                        <li><strong>Customer Service:</strong> Praktek layanan nasabah</li>
+                        <li><strong>Accounting Software:</strong> Praktek pembukuan keuangan</li>
+                        <li><strong>ATM Simulator:</strong> Praktek operasional ATM</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Pencapaian Siswa Perbankan</h3>
+                    <div class="achievement-grid">
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Simulasi Bank">
+                            <div class="achievement-content">
+                                <h4>Juara LKS Perbankan</h4>
+                                <p><strong>Rina Sari</strong> - Siswa Perbankan<br>Lomba Kompetensi Siswa tingkat provinsi</p>
+                            </div>
+                        </div>
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Presentasi Bisnis">
+                            <div class="achievement-content">
+                                <h4>Best Teller Award</h4>
+                                <p><strong>Ahmad Fauzi</strong> - Siswa Perbankan kelas XII<br>Kompetisi teller pelajar 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-30">
+                <button class="btn btn-primary" onclick="hideMajorDetail()">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Jurusan
+                </button>
+            </div>
+        </div>
+        
+        <!-- AKL Detail -->
+        <div id="akl-detail" class="major-detail">
+            <div class="detail-header">
+                <div class="detail-icon" style="background: #3498db;">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div>
+                    <h2>Akuntansi & Keuangan Lembaga (AKL)</h2>
+                    <p>Jurusan Akuntansi dan Sistem Keuangan</p>
+                </div>
+            </div>
+            
+            <div class="detail-content">
+                <div class="detail-info">
+                    <h3>Deskripsi Jurusan</h3>
+                    <p>Jurusan AKL mempelajari akuntansi keuangan, perpajakan, auditing, sistem informasi akuntansi, dan manajemen keuangan. Program ini dirancang untuk mencetak tenaga akuntansi yang profesional dan menguasai software akuntansi modern.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4><i class="fas fa-file-alt"></i> Kompetensi Utama</h4>
+                            <p>• Akuntansi Keuangan<br>• Perpajakan<br>• Auditing<br>• Sistem Informasi Akuntansi</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-desktop"></i> Software yang Dikuasai</h4>
+                            <p>• Accurate<br>• Zahir Accounting<br>• MYOB<br>• Excel Accounting</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-building"></i> Prospek Kerja</h4>
+                            <p>• Akuntan<br>• Tax Consultant<br>• Auditor<br>• Financial Staff</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Praktik Lab Akuntansi</h3>
+                    <p>Fasilitas lab akuntansi lengkap dengan:</p>
+                    <ul>
+                        <li><strong>Accounting Software:</strong> Komputer dengan software akuntansi terbaru</li>
+                        <li><strong>Tax Simulation:</strong> Simulasi perhitungan dan pelaporan pajak</li>
+                        <li><strong>Audit Practice:</strong> Praktek pemeriksaan laporan keuangan</li>
+                        <li><strong>Financial Report:</strong> Pembuatan laporan keuangan lengkap</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Prestasi Siswa AKL</h3>
+                    <div class="achievement-grid">
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Presentasi Akuntansi">
+                            <div class="achievement-content">
+                                <h4>Juara LKS Akuntansi</h4>
+                                <p><strong>Budi Santoso</strong> - Siswa AKL<br>Lomba Kompetensi Siswa tingkat nasional</p>
+                            </div>
+                        </div>
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Simulasi Kantor">
+                            <div class="achievement-content">
+                                <h4>Best Accounting Software User</h4>
+                                <p><strong>Maya Indah</strong> - Siswa AKL kelas XII<br>Kompetisi software akuntansi 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-30">
+                <button class="btn btn-primary" onclick="hideMajorDetail()">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Jurusan
+                </button>
+            </div>
+        </div>
+        
+        <!-- MEKATRONIKA Detail -->
+        <div id="mekatronika-detail" class="major-detail">
+            <div class="detail-header">
+                <div class="detail-icon" style="background: #e67e22;">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div>
+                    <h2>Mekatronika & Otomasi Industri</h2>
+                    <p>Jurusan Robotika dan Otomasi Industri</p>
+                </div>
+            </div>
+            
+            <div class="detail-content">
+                <div class="detail-info">
+                    <h3>Deskripsi Jurusan</h3>
+                    <p>Jurusan Mekatronika mempelajari integrasi antara mekanika, elektronika, dan komputer untuk mengembangkan sistem otomasi dan robotika. Siswa akan belajar tentang PLC (Programmable Logic Controller), pneumatik, hidrolik, robotika, dan sistem kendali industri.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h4><i class="fas fa-cogs"></i> Kompetensi Utama</h4>
+                            <p>• PLC Programming<br>• Sistem Pneumatik & Hidrolik<br>• Robotika Industri<br>• Sistem Kendali</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-microchip"></i> Teknologi yang Dipelajari</h4>
+                            <p>• PLC Siemens & Mitsubishi<br>• Arduino & Raspberry Pi<br>• Sensor & Aktuator<br>• HMI (Human Machine Interface)</p>
+                        </div>
+                        <div class="info-item">
+                            <h4><i class="fas fa-industry"></i> Prospek Kerja</h4>
+                            <p>• Automation Engineer<br>• PLC Programmer<br>• Maintenance Technician<br>• Robotics Technician</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Fasilitas Laboratorium</h3>
+                    <p>• Lab PLC dengan berbagai merek (Siemens, Mitsubishi, Omron)<br>• Workshop pneumatik & hidrolik<br>• Lab robotika dengan robot arm industri<br>• Workshop IoT untuk smart factory<br>• Simulator conveyor system</p>
+                    
+                    <h3>Proyek yang Dikerjakan</h3>
+                    <ul>
+                        <li><strong>Automated Conveyor System:</strong> Sistem conveyor otomatis dengan sensor</li>
+                        <li><strong>Smart Parking System:</strong> Sistem parkir otomatis menggunakan PLC</li>
+                        <li><strong>Robotic Arm:</strong> Robot pemindah barang sederhana</li>
+                        <li><strong>Home Automation:</strong> Sistem rumah pintar berbasis IoT</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Prestasi Siswa Mekatronika</h3>
+                    <div class="achievement-grid">
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Robotika">
+                            <div class="achievement-content">
+                                <h4>Juara 1 Lomba Robotika</h4>
+                                <p><strong>Tim Mekatronika Antartika</strong><br>Kompetisi robotika tingkat Jawa Timur 2024</p>
+                            </div>
+                        </div>
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1581094794326-1e5c8b7f4c5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="PLC Programming">
+                            <div class="achievement-content">
+                                <h4>Best PLC Programmer</h4>
+                                <p><strong>Dwi Satria</strong> - Siswa Mekatronika<br>Lomba otomasi industri tingkat nasional</p>
+                            </div>
+                        </div>
+                        <div class="achievement-card">
+                            <img src="https://images.unsplash.com/photo-1581094794328-5c8b7f4c5a5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="IoT Project">
+                            <div class="achievement-content">
+                                <h4>Inovasi IoT untuk Industri</h4>
+                                <p><strong>Siswa Mekatronika</strong><br>Penghargaan inovasi teknologi industri 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-30">
+                <button class="btn btn-primary" onclick="hideMajorDetail()">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Jurusan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== PPDB SECTION ========== -->
+    <section id="ppdb" class="ppdb-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>PENERIMAAN PESERTA DIDIK BARU</h2>
+                <p>Tahun Ajaran 2025-2026</p>
+            </div>
+            
+            <p>Pendaftaran dibuka dari 1 Januari 2025 hingga 30 Juni 2025. Kuota terbatas untuk 144 siswa per jurusan.</p>
+            
+            <div class="countdown">
+                <div class="countdown-box">
+                    <div class="countdown-number" id="days">00</div>
+                    <div>Hari</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div>Jam</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div>Menit</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div>Detik</div>
+                </div>
+            </div>
+            
+            <div class="ppdb-form animate">
+                <h3 class="text-primary text-center mb-30">Formulir Pendaftaran Online</h3>
+                <form id="registrationForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telp">No. Telepon *</label>
+                            <input type="tel" id="telp" class="form-control" required value="085237157189">
+                        </div>
+                        <div class="form-group">
+                            <label for="sekolah">Asal Sekolah *</label>
+                            <input type="text" id="sekolah" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jurusan">Pilihan Jurusan *</label>
+                            <select id="jurusan-select" class="form-control" required>
+                                <option value="">Pilih Jurusan</option>
+                                <option value="TKJ">Teknik Komputer & Jaringan (TKJ)</option>
+                                <option value="RPL">Rekayasa Perangkat Lunak (RPL)</option>
+                                <option value="DKV">Desain Komunikasi Visual (DKV)</option>
+                                <option value="PERBANKAN">Perbankan & Keuangan</option>
+                                <option value="AKL">Akuntansi & Keuangan Lembaga (AKL)</option>
+                                <option value="MEKATRONIKA">Mekatronika & Otomasi Industri</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat Lengkap</label>
+                            <textarea id="alamat" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="agree" required> Saya menyatakan data yang diisi adalah benar *
+                        </label>
+                    </div>
+                    
+                    <div class="text-center mt-30">
+                        <button type="button" class="btn btn-primary" onclick="submitRegistration()">
+                            <i class="fas fa-paper-plane"></i> Kirim Pendaftaran
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DATA PENDAFTAR ========== -->
+    <section id="data-pendaftar">
+        <div class="container">
+            <div class="data-pendaftar">
+                <div class="section-title">
+                    <h2>Data Pendaftar PPDB</h2>
+                    <p>Daftar calon siswa yang telah mendaftar</p>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Telepon</th>
+                                <th>Jurusan</th>
+                                <th>Tanggal Daftar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registrationTable">
+                            <!-- Data akan ditampilkan di sini -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="text-center mt-30">
+                    <button class="btn btn-primary" onclick="exportData()">
+                        <i class="fas fa-download"></i> Export Data ke CSV
+                    </button>
+                    <button class="btn btn-danger" onclick="clearData()">
+                        <i class="fas fa-trash"></i> Hapus Semua Data
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BERITA ========== -->
+    <section id="berita">
+        <div class="container">
+            <div class="section-title">
+                <h2>Berita & Pengumuman Terbaru</h2>
+                <p>Informasi terbaru seputar kegiatan sekolah</p>
+            </div>
+            
+            <div class="news-grid">
+                <div class="news-card animate">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="PPDB 2025">
+                        <div class="news-date">
+                            <div>15</div>
+                            <small>JAN</small>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">PPDB</span>
+                        <h3>PPDB 2025 Telah Dibuka</h3>
+                        <p>Penerimaan Peserta Didik Baru tahun ajaran 2025/2026 telah dibuka. Pendaftaran online melalui website...</p>
+                        <a href="https://www.detik.com/" target="_blank" class="btn btn-primary">
+                            Baca Selengkapnya
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="news-card animate">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Lomba Jaringan">
+                        <div class="news-date">
+                            <div>10</div>
+                            <small>JAN</small>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">PRESTASI</span>
+                        <h3>Juara 1 Lomba Jaringan Tingkat Jawa Timur</h3>
+                        <p>Siswa TKJ SMK Antartika 2 berhasil meraih juara 1 dalam lomba jaringan komputer tingkat Jawa Timur...</p>
+                        <a href="https://www.kompas.com/" target="_blank" class="btn btn-primary">
+                            Baca Selengkapnya
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="news-card animate">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Workshop IT">
+                        <div class="news-date">
+                            <div>5</div>
+                            <small>JAN</small>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">KEGIATAN</span>
+                        <h3>Workshop IT untuk Siswa Baru</h3>
+                        <p>SMK Antartika 2 mengadakan workshop IT gratis untuk calon siswa baru. Materi meliputi dasar pemrograman...</p>
+                        <a href="https://www.tribunnews.com/" target="_blank" class="btn btn-primary">
+                            Baca Selengkapnya
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== GALERI ========== -->
+    <section id="galeri" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri Kegiatan Sekolah</h2>
+                <p>Momen-momen spesial di SMK Antartika 2</p>
+            </div>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Siswa Belajar di Lab">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>Belajar di Lab Komputer</h4>
+                            <p>Siswa TKJ sedang praktek jaringan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Upacara Bendera">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>Upacara Bendera</h4>
+                            <p>Upacara setiap hari Senin</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Siswa Presentasi">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>Presentasi Projek</h4>
+                            <p>Siswa RPL mempresentasikan aplikasi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Ekstrakurikuler">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>Ekstrakurikuler Pramuka</h4>
+                            <p>Kegiatan pramuka setiap Jumat</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Lomba Seni">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>Pentas Seni</h4>
+                            <p>Pentas seni tahunan sekolah</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Tim Olahraga">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>Tim Futsal Sekolah</h4>
+                            <p>Tim futsal juara kabupaten</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== KONTAK ========== -->
+    <section id="kontak">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+                <p>Silakan hubungi kami untuk informasi lebih lanjut</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 class="text-primary mb-30">Informasi Kontak</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jl. Pendidikan No. 123, Sidoarjo<br>Jawa Timur 61257</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>085237157189</p>
+                            <small>Senin - Jumat, 08:00 - 16:00 WIB</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>akhmad234z@gmail.com</p>
+                            <p>info@smkantartika2.sch.id</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h4>Instagram</h4>
+                            <p>@akhmad_tifani</p>
+                            <a href="https://www.instagram.com/akhmad_tifani?igsh=Nmw3MjU3aGJpOGY3" target="_blank" style="color: var(--primary);">
+                                Kunjungi Instagram
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>085237157189</p>
+                            <a href="https://wa.me/6285237157189" target="_blank" class="btn btn-primary mt-20">
+                                <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 class="text-primary mb-30">Kirim Pesan</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Nama Lengkap *</label>
+                            <input type="text" id="contactName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail">Email *</label>
+                            <input type="email" id="contactEmail" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactSubject">Subjek</label>
+                            <input type="text" id="contactSubject" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage">Pesan *</label>
+                            <textarea id="contactMessage" class="form-control" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary" onclick="sendMessage()">
+                                <i class="fas fa-paper-plane"></i> Kirim Pesan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>SMK ANTARTIKA 2</h3>
+                    <p>Sekolah Menengah Kejuruan terbaik di Sidoarjo dengan fasilitas lengkap dan guru profesional.</p>
+                    <div class="social-links mt-20">
+                        <a href="https://www.instagram.com/akhmad_tifani?igsh=Nmw3MjU3aGJpOGY3" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/6285237157189" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Link Cepat</h3>
+                    <div class="footer-links">
+                        <a href="#home">Beranda</a>
+                        <a href="#profil">Profil Sekolah</a>
+                        <a href="#jurusan">Jurusan</a>
+                        <a href="#ppdb">PPDB 2025</a>
+                        <a href="#berita">Berita</a>
+                        <a href="#galeri">Galeri</a>
+                        <a href="#kontak">Kontak</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan No. 123, Sidoarjo</p>
+                    <p><i class="fas fa-phone"></i> 085237157189</p>
+                    <p><i class="fas fa-envelope"></i> akhmad234z@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 SMK Antartika 2 Sidoarjo. All rights reserved.</p>
+                <p>Website dibuat oleh Akhmad Tifani untuk tugas sekolah</p>
+                <p>Email: akhmad234z@gmail.com | WhatsApp: 085237157189</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // ========== DATA PENDAFTAR (Local Storage) ==========
+        let registrations = JSON.parse(localStorage.getItem('ppdbRegistrations')) || [];
+        
+        // ========== NAVIGATION ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const mainMenu = document.getElementById('mainMenu');
+            
+            menuToggle.addEventListener('click', function() {
+                mainMenu.classList.toggle('show');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('nav') && !event.target.closest('.menu-toggle')) {
+                    mainMenu.classList.remove('show');
+                }
+            });
+            
+            // Active menu on scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // Animated counters
+            animateCounter('studentCount', 850, 50);
+            animateCounter('teacherCount', 68, 100);
+            animateCounter('graduationRate', 95, 20);
+            animateCounter('achievementCount', 120, 30);
+            
+            // PPDB Countdown
+            startCountdown();
+            
+            // Load registration data
+            loadRegistrationData();
+        });
+        
+        // ========== COUNTER ANIMATION ==========
+        function animateCounter(elementId, target, speed) {
+            let element = document.getElementById(elementId);
+            let current = 0;
+            
+            const increment = target / speed;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (elementId === 'graduationRate' ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (elementId === 'graduationRate' ? '%' : '');
+                }
+            }, 50);
+        }
+        
+        // ========== PPDB COUNTDOWN ========== */
+        function startCountdown() {
+            const ppdbEnd = new Date('2025-06-30T23:59:59').getTime();
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const timeLeft = ppdbEnd - now;
+                
+                if (timeLeft > 0) {
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    
+                    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                } else {
+                    document.querySelector('.countdown').innerHTML = '<h3>Pendaftaran Telah Ditutup</h3>';
+                }
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+        
+        // ========== FORM SUBMISSION ==========
+        function submitRegistration() {
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const telp = document.getElementById('telp').value;
+            const sekolah = document.getElementById('sekolah').value;
+            const jurusan = document.getElementById('jurusan-select').value;
+            const alamat = document.getElementById('alamat').value;
+            const agree = document.getElementById('agree').checked;
+            
+            if (!nama || !email || !telp || !sekolah || !jurusan || !agree) {
+                alert('Harap lengkapi semua field yang wajib diisi!');
+                return;
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Email tidak valid!');
+                return;
+            }
+            
+            // Create registration object
+            const registration = {
+                id: Date.now(),
+                nama: nama,
+                email: email,
+                telp: telp,
+                sekolah: sekolah,
+                jurusan: jurusan,
+                alamat: alamat,
+                tanggal: new Date().toLocaleDateString('id-ID'),
+                waktu: new Date().toLocaleTimeString('id-ID')
+            };
+            
+            // Add to array
+            registrations.push(registration);
+            
+            // Save to local storage
+            localStorage.setItem('ppdbRegistrations', JSON.stringify(registrations));
+            
+            // Show success message
+            alert(`Pendaftaran berhasil!\n\nNo. Pendaftaran: ${registration.id}\nNama: ${nama}\nEmail: ${email}\nJurusan: ${jurusan}\n\nData telah tersimpan.`);
+            
+            // Reset form
+            document.getElementById('registrationForm').reset();
+            
+            // Reload data table
+            loadRegistrationData();
+            
+            // Show data section
+            document.querySelector('.data-pendaftar').classList.add('active');
+            window.location.href = '#data-pendaftar';
+        }
+        
+        // ========== LOAD REGISTRATION DATA ==========
+        function loadRegistrationData() {
+            const tableBody = document.getElementById('registrationTable');
+            tableBody.innerHTML = '';
+            
+            if (registrations.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            Belum ada data pendaftar
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            registrations.forEach((reg, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${reg.nama}</td>
+                    <td>${reg.email}</td>
+                    <td>${reg.telp}</td>
+                    <td><span class="badge">${reg.jurusan}</span></td>
+                    <td>${reg.tanggal} ${reg.waktu}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // ========== SHOW/HIDE MAJOR DETAIL ==========
+        function showMajorDetail(major) {
+            // Hide all major details first
+            document.querySelectorAll('.major-detail').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            // Show selected major
+            const detailElement = document.getElementById(`${major}-detail`);
+            if (detailElement) {
+                detailElement.classList.add('active');
+                detailElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        function hideMajorDetail() {
+            document.querySelectorAll('.major-detail').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            // Scroll back to jurusan section
+            document.getElementById('jurusan').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // ========== SEND CONTACT MESSAGE ==========
+        function sendMessage() {
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const subject = document.getElementById('contactSubject').value;
+            const message = document.getElementById('contactMessage').value;
+            
+            if (!name || !email || !message) {
+                alert('Harap isi nama, email, dan pesan!');
+                return;
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Email tidak valid!');
+                return;
+            }
+            
+            // Create mailto link
+            const mailtoLink = `mailto:akhmad234z@gmail.com?subject=${encodeURIComponent(subject || 'Pesan dari Website SMK Antartika 2')}&body=${encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`)}`;
+            
+            // Open email client
+            window.open(mailtoLink, '_blank');
+            
+            // Show success message
+            alert('Pesan Anda akan dikirim melalui email client. Email tujuan: akhmad234z@gmail.com');
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+        }
+        
+        // ========== EXPORT DATA ==========
+        function exportData() {
+            if (registrations.length === 0) {
+                alert('Belum ada data untuk diexport!');
+                return;
+            }
+            
+            let csv = 'No,Nama,Email,Telepon,Jurusan,Sekolah,Alamat,Tanggal Daftar,Waktu\n';
+            
+            registrations.forEach((reg, index) => {
+                csv += `${index + 1},"${reg.nama}","${reg.email}","${reg.telp}","${reg.jurusan}","${reg.sekolah}","${reg.alamat}","${reg.tanggal}","${reg.waktu}"\n`;
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `data-pendaftar-ppdb-${new Date().toISOString().slice(0,10)}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            alert('Data berhasil diexport ke CSV!');
+        }
+        
+        // ========== CLEAR DATA ==========
+        function clearData() {
+            if (confirm('Apakah Anda yakin ingin menghapus semua data pendaftar? Tindakan ini tidak dapat dibatalkan.')) {
+                localStorage.removeItem('ppdbRegistrations');
+                registrations = [];
+                loadRegistrationData();
+                alert('Semua data telah dihapus!');
+            }
+        }
+        
+        // ========== PRINT PAGE ==========
+        function printPage() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
